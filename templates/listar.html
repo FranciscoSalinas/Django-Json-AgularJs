@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" media="screen" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<title> </title>
+ <!-- esto es un comentario -->
+</head>
+<body>
+<div class="container">
+<div class="well well-lg">
+	<center><h3><strong>PRACTICA DE GENERAR  MATERIAS Y ALUMNOS</strong></h3>
+</div>
+</div>
+
+
+{%if messages%}
+{%for msg in messages%}
+<div class="alert alert-warning" role="alert"><center>
+<h4>{{msg.message}}</h4></center></div>
+{%endfor%}
+{%endif%}
+
+
+{% if alumno %}
+		<div class="container">
+		<center>
+			<H3 class="alert alert-success">ESTUDIANTES REGISTRADOS</H3>
+		</center>
+		<a href="NuevoEstudiante" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+		
+		<table class="table table-striped">
+		<tr>
+			<td><label>Cedula</label></td>
+			<td><label>Nombres</label></td>
+			<td><label>Apellidos</label></td>
+			<td>Opciones</td>
+			
+		</tr>
+
+		{% for c in alumno %}
+		<tr>
+			<td>{{c.cedula}}</td>
+			<td>{{c.nombre}}</td>
+			<td>{{c.apellido}}</td>
+			<td><a class="glyphicon glyphicon-pencil" title="Modificar" href="ModificarEstudiante?cedula={{c.cedula}}"></a> 
+			| <a class="glyphicon glyphicon-trash" href="EliminarEstudiante?cedula={{c.cedula}}" title="Eliminar"></a></td>	
+		</tr>
+		{% endfor %}
+		</table>
+		{% else %}
+		
+		<div class="alert alert-success"><center> NO EXISTEN CLIENTES REGISTRADOS</center></div>
+		<a href="NuevoEstudiante"><center><button type="button" class="btn btn-success">
+  <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Estudiante
+</button></center></a><br>
+		{% endif %}
+		<br>
+		
+
+		{% if materia %}
+		<center> <H3 class="alert alert-success">MATERIAS REGISTRADAS</H3></center>
+		<a href="NuevaMateria" class="btn btn-primary"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+		<table class="table table-striped">  
+		<tr>
+			
+			<td><label>Nombres</label></td>
+			<td><label>Cupos</label></td>
+			<td><label>Descripcion</label></td>
+			<td>Opciones</td>
+			
+		</tr>
+
+		{% for c in materia %}
+		<tr>
+			
+			<td>{{c.nombre}}</td>
+			<td>{{c.cupo}}</td>
+			<td>{{c.descripcion}}</td>
+			<td><a class="glyphicon glyphicon-pencil" href="ModificarMateria?nombre={{c.nombre}}" title="Modificar"></a> | <a class="glyphicon glyphicon-trash" href="EliminarMateria?nombre={{c.nombre}}" title="Eliminar"></a></td>
+		
+		</tr>
+		{% endfor %}
+		</table>
+		{% else %}
+		
+
+		<div class="alert alert-success"><center> NO EXISTEN CLIENTES REGISTRADOS</center></div>
+		<a href="NuevaMateria"><center>button type="button" class="btn btn-success">
+  <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Materia
+</button>
+		</center></a>
+		{% endif %}
+
+<br>
+
+</div>
+
+
+<div class="container">
+	<div class="well well-lg">
+		<p class="text-center"> 
+
+			<strong>Francisco Salinas</strong>
+			</br>	
+			Quinto Ciclo "A" 
+			</br>
+			2016
+		</p>
+	</div>
+</div> 
+</body>
+</html>
+
+

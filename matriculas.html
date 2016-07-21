@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<script src="angular/angular.min.js"></script>
+  <script src="angular/angular-resource.js"></script>
+	<script src="matriculas.js"></script>
+	<meta charset="UTF-8">
+</head>
+<body ng-app="app">
+<div ng-controller="controlador">
+<div class="container">
+<div class="well well-lg">
+	<center><h3><strong>CURSOS DISPONIBLES - UNL</strong></h3>
+</div><br><br>
+
+
+<form ng-show="formulario" ng-submit="Validar()">
+<strong>Ingrese su cedula: </strong><input name="cedula" placeholder="Ingrese su cedula ..." type="Text" ng-model="cedula">
+<input class="btn btn-success" type="submit" value="Buscar">
+</form>
+
+<div ng-show="msg"><center><h3 class="alert alert-info">{{mensaje}}</h3></center></div>
+<h2>{{nombres}}</h2>
+
+<div ng-show="materia">
+<div><center><h3 class="alert alert-success">CURSOS DISPONIBLES</h3></center></div> <br>
+<table class="table table-striped">
+	<tr>
+	<td><strong>Nombre</strong></td>
+	<td><strong>Cupos Disponibles</strong></td>
+	<td><strong>Descripcion</strong></td>
+	<td><strong>Matricular</strong></td>
+	</tr>
+	<tr ng-repeat="c in listamateria">
+		<td>{{c.nombre}}</td>
+		<td>{{c.cupo}}</td>
+		<td>{{c.descripcion}}</td>
+		<td> 
+		<button type="button" class="btn btn-success" aria-label="Left Align" ng-click="matriculado()">
+ 			<span class="glyphicon glyphicon-saved" aria-hidden="true"></span>
+		</button>
+		</td>
+	</tr>
+</table>
+</div><br><br>
+<div class="well well-lg">
+		<p class="text-center"> 
+			<strong>Francisco Salinas</strong>
+			</br>	
+			Quinto Ciclo "A" 
+			</br>
+			2016
+		</p>
+	</div>
+</div>
+	
+</div>
+</body>
+</html>
+
+
+
+
+
